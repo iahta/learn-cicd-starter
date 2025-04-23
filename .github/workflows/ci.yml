@@ -20,7 +20,7 @@ jobs:
 
       - name: Test Auth
         run: go test -cover ./...
-        
+       
 jobs:
   tests:
     name: Style
