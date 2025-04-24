@@ -36,3 +36,16 @@ jobs:
 
       - name: Formatting Test
         run: test -z $(go fmt ./...)
+
+  linting:
+    name: Linting
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install staticcheck
+        run: go install honnef.co/go/tools/cmd/staticcheck@latest
+
+      - name: Linting Check
+        run: staticcheck ./...
+
+      
