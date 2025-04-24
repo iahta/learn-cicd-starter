@@ -30,7 +30,7 @@ jobs:
         run: go install honnef.co/go/tools/cmd/staticcheck@latest
 
       - name: Path to Staticcheck
-        uses: echo "${GOPATH:-$HOME/go}/bin" >> $GITHUB_PATH
+        run: echo "${GOPATH:-$HOME/go}/bin" >> $GITHUB_PATH
 
       - name: Check out code
         uses: actions/checkout@v4
