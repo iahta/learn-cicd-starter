@@ -21,18 +21,10 @@ jobs:
       - name: Build
         run: ./scripts/buildprod.sh
 
-      - name: Check secret presence
-        run: |
-          if [ -n "${{ secrets.GCP_CREDENTIALS }}" ]; then
-            echo "GCP_CREDENTIALS secret is set"
-          else
-            echo "GCP_CREDENTIALS secret is NOT set"
-          fi
-
       - id: 'auth'
         uses: 'google-github-actions/auth@v2'
         with:
-          credentials_json: '${{ secrets.GCP_CREDENTIALS }}'
+          credentials_json: '${{ secrets.GCP_CRENDENTIALS }}'
 
       - name: 'Set up Cloud SDK'
         uses: 'google-github-actions/setup-gcloud@v2'
